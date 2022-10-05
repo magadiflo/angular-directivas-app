@@ -1,10 +1,10 @@
-<h1 class="mt-5 mb-5 pb-2 border-bottom">Agregar producto</h1>
+<h1 class="mt-5 mb-5 pb-2 border-bottom" error-msg>Agregar producto</h1>
 
 <form [formGroup]="miFormulario">
     <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
+        <label for="nombre" class="form-label" error-msg [color]="'green'">Nombre</label>
         <input type="text" class="form-control" id="nombre" formControlName="nombre">
-        <div class="form-text text-danger" *ngIf="tieneError('nombre');" error-msg>Ocurrió algún error</div>
+        <div class="form-text" *ngIf="tieneError('nombre');" error-msg color="blue">Ocurrió algún error</div>
     </div>
     <button type="submit" class="btn btn-primary">Agregar</button>
 </form>

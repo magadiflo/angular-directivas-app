@@ -1,16 +1,23 @@
-import { Directive, OnInit } from '@angular/core';
+import { Directive, OnInit, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[error-msg]'
 })
 export class ErrorMsgDirective implements OnInit {
 
-  constructor() {
-    console.log('constructor directive');
+  @Input() color: string = 'red';
+  htmlElement: ElementRef<HTMLElement>;
+
+  constructor(private el: ElementRef<HTMLElement>) {
+    this.htmlElement = el;
   }
 
   ngOnInit(): void {
-    console.log('onInit() en la directiva');
+    this.setColor();
+  }
+
+  setColor(): void {
+    this.htmlElement.nativeElement.style.color = this.color;
   }
 
 }
