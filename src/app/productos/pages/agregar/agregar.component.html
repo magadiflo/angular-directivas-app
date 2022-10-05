@@ -1,12 +1,14 @@
 <h1 class="mt-5 mb-5 pb-2 border-bottom">Agregar producto</h1>
 
-<form>
+<form [formGroup]="miFormulario">
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre">
-        <div class="form-text text-danger">Ocurrió algún error</div>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+        <div class="form-text text-danger" *ngIf="tieneError('nombre');">Ocurrió algún error</div>
     </div>
     <button type="submit" class="btn btn-primary">Agregar</button>
 </form>
 
 <h3 class="mt-5">Formulario</h3>
+<pre>{{ miFormulario.value | json }}</pre>
+<pre>Valid: {{ miFormulario.valid }}</pre>
