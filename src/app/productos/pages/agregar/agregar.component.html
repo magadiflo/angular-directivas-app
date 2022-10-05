@@ -4,7 +4,7 @@
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" formControlName="nombre">
-        <div class="form-text text-danger" *ngIf="tieneError('nombre');">Ocurrió algún error</div>
+        <div class="form-text text-danger" *ngIf="tieneError('nombre');" error-msg>Ocurrió algún error</div>
     </div>
     <button type="submit" class="btn btn-primary">Agregar</button>
 </form>
