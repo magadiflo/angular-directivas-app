@@ -20,6 +20,10 @@ export class ErrorMsgDirective implements OnInit {
     this.setColor();
   }
 
+  @Input() set valido(valor: boolean) {
+    valor ? this.htmlElement.nativeElement.classList.remove('hidden') : this.htmlElement.nativeElement.classList.add('hidden');
+  }
+
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;
   }
@@ -29,16 +33,16 @@ export class ErrorMsgDirective implements OnInit {
     this.setTexto();
     this.setClase();
   }
-  
+
   setTexto(): void {
     this.htmlElement.nativeElement.innerHTML = this._texto;
   }
-  
+
   setColor(): void {
-    this.htmlElement.nativeElement.style.color = this._color;  
+    this.htmlElement.nativeElement.style.color = this._color;
   }
   setClase(): void {
-    this.htmlElement.nativeElement.classList.add('form-text');    
+    this.htmlElement.nativeElement.classList.add('form-text');
   }
 
 }

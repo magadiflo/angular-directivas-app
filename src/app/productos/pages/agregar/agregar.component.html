@@ -4,7 +4,7 @@
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" formControlName="nombre">
-        <div *ngIf="tieneError('nombre');" error-msg [color]="color" [mensaje]="texto"></div>
+        <div [valido]="tieneError('nombre')" error-msg [color]="color" [mensaje]="texto"></div>
     </div>
     <button type="submit" class="btn btn-primary" (click)="cambiarNombre()">Agregar</button>
     <button type="submit" class="btn btn-primary" (click)="cambiarColor()">Cambiar color</button>
