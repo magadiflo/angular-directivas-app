@@ -12,12 +12,12 @@ export class ErrorMsgDirective implements OnInit {
 
   @Input() set mensaje(valor: string) {
     this._texto = valor;
-    this.htmlElement.nativeElement.innerText = valor;
+    this.setTexto();
   }
 
   @Input() set color(valor: string) { //* Recibimos el color con el input (de afuera) y se le pasa al parámetro valor, de esta manera evitamos usar el ngOnChanges(...)
     this._color = valor;
-    this.htmlElement.nativeElement.style.color = valor;
+    this.setColor();
   }
 
   constructor(private el: ElementRef<HTMLElement>) {
@@ -25,13 +25,20 @@ export class ErrorMsgDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setClass();
-    this.htmlElement.nativeElement.innerHTML = this._texto;
-    this.htmlElement.nativeElement.style.color = this._color;
+    this.setColor();
+    this.setTexto();
+    this.setClase();
   }
-
-  setClass(): void {
-    this.htmlElement.nativeElement.classList.add('form-text');
+  
+  setTexto(): void {
+    this.htmlElement.nativeElement.innerHTML = this._texto;
+  }
+  
+  setColor(): void {
+    this.htmlElement.nativeElement.style.color = this._color;  
+  }
+  setClase(): void {
+    this.htmlElement.nativeElement.classList.add('form-text');    
   }
 
 }
