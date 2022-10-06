@@ -13,3 +13,11 @@
 <h3 class="mt-5">Formulario</h3>
 <pre>{{ miFormulario.value | json }}</pre>
 <pre>Valid: {{ miFormulario.valid }}</pre>
+
+<div class="row" *customIf="miFormulario.invalid">
+    <div class="col">
+        <div class="alert alert-danger">
+            Hay erroes en el formulario
+        </div>
+    </div>
+</div>
